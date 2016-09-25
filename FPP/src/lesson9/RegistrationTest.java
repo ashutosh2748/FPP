@@ -43,8 +43,8 @@ public class RegistrationTest
 		obj.add(new Registration(985381,"compro","Nisha Gautam","ZS985378"));
 		obj.add(new Registration(985378,"compro","Anup Devkota","XS985378"));
 		
-		System.out.println("PeekOBJ"+obj.peek());
-		System.out.println("Size of Queue"+obj.size());
+		System.out.println("PeekOBJ:"+obj.peek());
+		System.out.println("Size of Queue:"+obj.size());
 		
 		Iterator it = obj.iterator();
 		System.out.println("List of Elements :" + obj);

@@ -20,16 +20,16 @@ public class Palindrome {
 	            stack.push(input.charAt(i));
 	        }
 
-	        String reverseInput = "";
+	       // String reverseInput = "";
 
-	        while (!stack.isEmpty()) {
-	            reverseInput += stack.pop();
+	       for(int i=0;i<input.length()/2;i++) {
+	            if(input.charAt(i)!=stack.pop())
+	            	{System.out.println("The Provided String "+input+ " is not a palindrome.");
+	            return;}
 	        }
 
-	        if (input.equals(reverseInput))
-	            System.out.println("The Provided String "+input+ " is a palindrome.");
-	        else
-	        	 System.out.println("The Provided String "+input+ " is not a palindrome.");
+	       System.out.println("The Provided String "+input+ " is  a palindrome.");
+	        	 
 	    
 	    in.close();
 	    }
