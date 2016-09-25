@@ -1,14 +1,15 @@
 package lesson8;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 
 
 class Person
 {
 private String lastName;
-private String firstName;
-private int age;
+String firstName;
+int age;
 public Person(String last, String first, int a)
 { // constructor to initialize the values
 	this.lastName=last;
@@ -37,6 +38,12 @@ public PersonArrayOpe(int max)
 	a=new Person[max];
 	size=0;
 }
+
+@Override
+public String toString() {
+	return String.format("PersonArrayOpe [a=%s, size=%s]", Arrays.toString(a), size);
+}
+
 public Person find(String searchName) // Pass Lastname as an argument
 {
 	for(int i=0;i<a.length;i++)
@@ -90,6 +97,8 @@ private void resize()
 	a=Arrays.copyOf(a, a.length*2);
 	
 	}
+
+
 }
 
 

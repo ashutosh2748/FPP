@@ -1,8 +1,8 @@
 package lesson8;
 
+import java.util.Iterator;
 
-
-	public class MyStringLinkedList {
+public class MyStringLinkedList {
 		Node header;
 
 		MyStringLinkedList() {
@@ -185,6 +185,53 @@ package lesson8;
 			str = str + "==>[" + "NULL" + "]";
 			System.out.println(str);
 		}
+		public void removeFirst(){
+			Node n=header;
+			if (header != null&& n!=null) {
+				if (n.next == null && n.previous == null) {
+					// only one node
+					header = null;
+					n = null;
+					
+
+				} 
+					// remove first node
+				else if(n.next!=null)
+					n.next.previous = null;
+					header = n.next;
+					n = null;
+					}
+			}
+			
+		
+		public void removeLast(){
+			Node n=findLast();
+			if(n!=null){
+				// remove last node
+				n.previous.next = null;
+				n = null;
+			}
+			
+						}
+		public void print(Node n) {
+			System.out.println("I am Printing through Recursion:");
+			//Node temp=n;
+			if(n!=null&&n.next!=null)
+			{
+			System.out.println(n);
+			removeFirst();
+			print(getFirst());
+			}
+			}
+		public Node getFirst(){
+			if(header!=null)return header;
+			else return null;
+			
+		}
+		public Node getLast(){
+			return findLast();
+			
+		}
 		
 		public class Node {
 			String value;
@@ -200,7 +247,10 @@ package lesson8;
 			public String toString() {
 				return value;
 			}
-		}
+			
+			
+			
+}
 
 		public static void main(String[] args) {
 			MyStringLinkedList mySL = new MyStringLinkedList();
@@ -215,6 +265,7 @@ package lesson8;
 			mySL.addFront("Apple Pie");
 			System.out.println(mySL);
 			mySL.printReverse();
+			//Iterator it=mySL.Iterator();
 			mySL.addLast("Orange Juice");
 			System.out.println(mySL);
 			mySL.printReverse();
@@ -245,9 +296,13 @@ package lesson8;
 			mySL.postAddNode(mySL.findItem("Orange Juice"), "Peach Sauce" );
 			System.out.println(mySL);
 			mySL.printReverse();
+			
+			mySL.printReverse();
+			mySL.removeFirst();
+			mySL.removeLast();
+			mySL.print(mySL.getFirst());
 			mySL.deleteList();
 			System.out.println(mySL);
-			mySL.printReverse();
 		}
 
 	}
