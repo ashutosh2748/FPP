@@ -96,11 +96,31 @@ public class MyBST {
 		else
 		return sizeOf(root)-1;
 	}
+	public int leafNode()
+	{
+		if(root==null)return 0 ;
+		else
+		return leafNode(root);
+	}
+	
+	private int leafNode(BinaryNode t)
+	{
+		int count=0;
+		if(t!=null)
+		{
+			if(t.left==null&&t.right==null)return 1;
+			else count= count+leafNode(t.left)+leafNode(t.right);
+		}
+		
+		return count;
+	}
+	
 	private int sizeOf (BinaryNode t)
 	{
 		int count=1;
 		if(t!=null)
 		{
+			
 			count=sizeOf(t.left)+sizeOf(t.right);
 		}
 		//else return 0;
@@ -214,6 +234,7 @@ public class MyBST {
 					
 		}
 		mybst.insert(12);
+		System.out.println("IN Order");
 		mybst.printTree();
 		System.out.println("Post Order");
 		
@@ -224,6 +245,7 @@ public class MyBST {
 		System.out.println("It contains 25:"+mybst.contains(25));
 		System.out.println("It contains 200:"+mybst.contains(200));
 		System.out.println("It contains "+mybst.size()+" No of ELements");
+		System.out.println("No of Leaf elements in this binary tree is "+mybst.leafNode());
 		
 		
 		/*TreeSet<Integer> ts = new TreeSet<Integer>();
