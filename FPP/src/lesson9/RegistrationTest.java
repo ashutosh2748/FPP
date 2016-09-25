@@ -43,7 +43,29 @@ public class RegistrationTest
 		obj.add(new Registration(985381,"compro","Nisha Gautam","ZS985378"));
 		obj.add(new Registration(985378,"compro","Anup Devkota","XS985378"));
 		
+		System.out.println("PeekOBJ"+obj.peek());
+		System.out.println("Size of Queue"+obj.size());
+		
 		Iterator it = obj.iterator();
+		System.out.println("List of Elements :" + obj);
+		while(it.hasNext()){
+			Registration ob = obj.remove();
+			System.out.println(ob);
+		}	
+		System.out.println("List of Elements :" + obj);
+		System.out.println("Status of Queue:"+obj.isEmpty());
+		//PriorityQueue<Registration> obj = new PriorityQueue(sidComparator);
+		//PriorityQueue<Registration>
+		obj = new PriorityQueue(idComparator);
+		obj.add(new Registration(985378,"compro","Ashutosh Ghimire","MS985378"));
+		obj.add(new Registration(985379,"compro","Anita Neupane","CS985378"));
+		obj.add(new Registration(985380,"compro","Prajil Maharjan","DS985378"));
+		obj.add(new Registration(985381,"compro","Suntali Tamang","AS985378"));
+		obj.add(new Registration(985381,"compro","Nisha Gautam","ZS985378"));
+		obj.add(new Registration(985378,"compro","Anup Devkota","XS985378"));
+		
+		//Iterator //
+		it = obj.iterator();
 		System.out.println("List of Elements :" + obj);
 		while(it.hasNext()){
 			Registration ob = obj.poll();
