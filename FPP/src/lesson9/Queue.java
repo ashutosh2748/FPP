@@ -45,7 +45,7 @@ public class Queue {
     }
     public Person peek()
     {
-    return p[count];	
+    return p[0];	
     }
     
     public int size()
@@ -67,7 +67,7 @@ public class Queue {
     	System.out.println("Size of Queue:"+thequeue.size());
     	
     	System.out.println(thequeue.toString());
-    	thequeue.peek();
+    	System.out.println(thequeue.peek());
     	System.out.println("Size of Queue:"+thequeue.size());
     	System.out.println(thequeue.toString());
     	thequeue.remove();
