@@ -29,6 +29,7 @@ public class Start extends Application {
 	String Title="LMS";
 	BorderPane border=new BorderPane();
 	FlowPane menu=new FlowPane();
+	static int auth=0;
 	
 	public static void main(String[] args) {
 		launch(args);
@@ -61,7 +62,7 @@ public class Start extends Application {
 		
 	
 
-	public GridPane getLoginGrid()
+ public GridPane getLoginGrid()
 	{
 		
 GridPane loginGrid = new GridPane();
@@ -129,8 +130,10 @@ btnSubmit.setOnAction(new EventHandler<ActionEvent>() {
 		
 			//invoke librarian window
 			//new AddCopyUI().show();
+			auth=1;
 			border.setCenter(getWelcomeLibrarian("Welcome You are a librarian"));
 			FlowPane xx=(FlowPane)border.getLeft();
+			auth=1;
 			
 		
 			
@@ -143,7 +146,7 @@ btnSubmit.setOnAction(new EventHandler<ActionEvent>() {
 		// System.out.println("admin login successfully");
 		{
 			informationLable.setText(("admin login successfully"));
-			
+			auth=3;
 			border.setCenter(getWelcomeLibrarian("Welcome You are a Admin"));
 			//invoke admin window
 			
@@ -154,9 +157,12 @@ btnSubmit.setOnAction(new EventHandler<ActionEvent>() {
 			// System.out.println("admin &librarian login successfully");
 			informationLable
 					.setText("admin &librarian login successfully");
+			auth=2;
+			
 			border.setCenter(getWelcomeLibrarian("Welcome You are a librarian and admin"));
 			//invoke both window
 		}
+		border.setLeft(getMenuFlow());
 
 	}
 
@@ -294,6 +300,55 @@ return loginGrid;
 			evt-> border.setCenter(getCheckPane()));
 		
 		//};
+		switch (auth)
+		{
+		case 0: 
+			{
+				btn0.setDisable(true);
+				btn1.setDisable(true);
+				btn2.setDisable(true);
+				btn3.setDisable(true);
+				btn4.setDisable(true);
+				break;
+			}
+		case 1: 
+		
+			{
+				btn0.setDisable(true);
+				btn1.setDisable(false);
+				btn2.setDisable(true);
+				btn3.setDisable(false);
+				btn4.setDisable(true);
+				break;
+			}
+			
+		case 2: 
+
+		{
+			btn0.setDisable(true);
+			btn1.setDisable(true);
+			btn2.setDisable(true);
+			btn3.setDisable(true);
+			btn4.setDisable(true);
+			break;
+		}
+		case 3: 
+
+		{
+			btn0.setDisable(false);
+			btn1.setDisable(true);
+			btn2.setDisable(true);
+			btn3.setDisable(true);
+			btn4.setDisable(false);
+			break;
+		}
+		
+		
+			
+			
+		}
+		
+		
 		return menuGrid;
 }
 
